@@ -13,9 +13,9 @@ ENV LC_CTYPE en_GB.UTF-8
 RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 
 # Install dependencies
-RUN apt-get update && apt-get install -y git build-essential curl wget software-properties-common
+RUN apt-get update && apt-get install -y git build-essential curl wget software-properties-common nano
 
-# Install JDK 7
+# Install JDK 8
 RUN apt-get update && apt-get install -y openjdk-8-jdk openjdk-8-demo openjdk-8-doc openjdk-8-jre-headless openjdk-8-source
 
 # Get Tomcat
@@ -72,6 +72,8 @@ RUN cd ${SRC_DIR} && mvn package
 
 VOLUME /home/dspace
 VOLUME /opt/dspace
+
+ENV TERM=xterm
 
 # Launch Tomcat
 CMD ["/opt/tomcat/bin/catalina.sh", "run"]
