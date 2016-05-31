@@ -4,7 +4,7 @@ Docker-Image für DSpace
 Anleitung:
 
 1. git clone https://github.com/subugoe/docker-dspace.git
-2. in Dockerfile Zeilen 66 & 67 hostip ändern
+2. in Dockerfile Zeilen 66 & 67 hostip einsetzen
 2. optional: in Dockerfile Projektnamen geo-leo ändern (Zeilen 44, 52, 65)
 3. optional: in docker-compose.yml Ports, Resource-Limits ändern
 4. docker-comopose up -d
