@@ -26,3 +26,6 @@ Anleitung:
       5. exit
 
 7. http://localhost:8082/xmlui
+
+8. um XMLUI Mirage 2 (responsive) zu nutzen: in /opt/dspace/geo-leo/config/xmlui.xconf Theme ersetzen durch:
+   <theme name="Mirage 2" regex=".*" path="Mirage2/" />
