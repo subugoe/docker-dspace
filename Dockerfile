@@ -24,7 +24,8 @@ tar xzvf /tmp/tomcat.tgz -C /opt && \
 mv /opt/apache-tomcat-${TOMCAT_VERSION} /opt/tomcat
 
 # Add admin/admin user
-COPY tomcat-users.xml /opt/tomcat/conf/
+COPY tomcat-users.xml /opt/tomcat/conf/tomcat-users.xml
+COPY setenv.sh /opt/tomcat/bin/setenv.sh
 
 # Maven, Ant installieren
 RUN apt-get update && \
