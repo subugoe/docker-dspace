@@ -1,7 +1,7 @@
 # docker-dspace
 Docker-Image für DSpace
 
-Doku:
+Anleitung:
 
 1. git clone https://github.com/subugoe/docker-dspace.git
 2. in Dockerfile Zeilen 66 & 67 hostip ändern
