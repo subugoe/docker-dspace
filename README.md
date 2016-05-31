@@ -7,7 +7,7 @@ Anleitung:
 
 2. in Dockerfile Zeilen 66 & 67 hostip durch Host-IP ersetzen
 
-2. optional: in Dockerfile Projektnamen geo-leo ändern (Zeilen 44, 52, 65)
+2. optional: in Dockerfile Projektnamen geo-leo ändern (Zeilen 44, 52, 65), Tomcat/DSpace-Version ändern 
 
 3. optional: in docker-compose.yml Ports, Resource-Limits ändern
 
