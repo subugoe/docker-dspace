@@ -68,7 +68,7 @@ RUN cd ${SRC_DIR} && sed -i -e "s%dspace.baseUrl = http://localhost:8080%dspace.
 RUN cd ${SRC_DIR} && sed -i -e "s%db.url=jdbc:postgresql://localhost:5432/dspace%db.url=jdbc:postgresql://postgres:5432/dspace%g" build.properties
 
 # build it
-RUN cd ${SRC_DIR} && mvn package
+RUN cd ${SRC_DIR} && mvn package -Dmirage2.on=true
 
 VOLUME /home/dspace
 VOLUME /opt/dspace
