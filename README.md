@@ -7,26 +7,28 @@ Anleitung:
 
 2. in Dockerfile Zeilen 66 & 67 hostip durch Host-IP ersetzen
 
-2. optional: in Dockerfile Projektnamen geo-leo ändern (Zeilen 44, 52, 65), Tomcat/DSpace-Version ändern 
+2. optional: in Dockerfile Projektnamen geo-leo ändern (Zeilen 44, 52, 65), Tomcat/DSpace-Version ändern, in docker-compose.yml Ports, Resource-Limits ändern
 
-3. optional: in docker-compose.yml Ports, Resource-Limits ändern
+3. docker build -t dspace .
 
-4. docker-comopose up -d
+4. in docker-compose.yml Ports, Resource-Limits ändern
 
-5. DB-User und DB anlegen: docker exec -it dspace_postgres_1 /bin/bash
+5. docker-comopose up -d
+
+6. DB-User und DB anlegen: docker exec -it dspace_postgres_1 /bin/bash
       1. createuser -U postgres -d -A -P dspace
       2. createdb -U dspace -E UNICODE dspace
       3. exit
 
-6. DSpace-Installation abschließen: docker exec -it dspacetestr /bin/bash
+7. DSpace-Installation abschließen: docker exec -it dspacetestr /bin/bash
       1. cd /home/dspace/dspace-5.5-src/dspace/target/dspace-installer
       2. ant fresh_install
       3. webapps von /opt/dspace/geo-leo/webapps zu /opt/tomcat/webapps kopieren oder symlinks setzen
       4. /opt/dspace/geoleo/bin/dspace create-administrator
       5. exit
 
-7. http://localhost:8082/xmlui
+8. http://localhost:8082/xmlui
 
-8. um XMLUI Mirage 2 (responsive) zu nutzen: in /opt/dspace/geo-leo/config/xmlui.xconf Theme ersetzen durch "theme name="Mirage 2" regex=".*" path="Mirage2/" />"
+9. um XMLUI Mirage 2 (responsive) zu nutzen: in /opt/dspace/geo-leo/config/xmlui.xconf Theme ersetzen durch "theme name="Mirage 2" regex=".*" path="Mirage2/" />"
 
-9. DSpace-Container neustarten: docker restart dspace_dspace_1
+10. DSpace-Container neustarten: docker restart dspace_dspace_1
