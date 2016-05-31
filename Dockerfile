@@ -34,7 +34,6 @@ apt-get install -y maven ant
 # DSpace-User anlegen, default-root-Passwort ändern
 RUN useradd -m dspace 
 RUN echo "dspace:dspace" | chpasswd
-#RUN echo "root:a1b2c3" | chpasswd
 
 # tomcat-Ordner dspace geben, tomcat als dspace starten
 RUN chown -R dspace /opt/tomcat
