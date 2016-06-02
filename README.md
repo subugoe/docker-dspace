@@ -7,13 +7,11 @@ Anleitung:
 
 2. in Dockerfile Zeilen 66 & 67 hostip durch Host-IP ersetzen
 
-2. optional: in Dockerfile Projektnamen geo-leo ändern (Zeilen 44, 52, 65), Tomcat/DSpace-Version ändern, in docker-compose.yml Ports, Resource-Limits ändern
+3. optional: in Dockerfile Projektnamen geo-leo ändern (Zeilen 44, 52, 65), Tomcat/DSpace-Version ändern, in docker-compose.yml Ports, Resource-Limits ändern
 
-3. docker build -t dspace .
+4. docker build -t dspace .
 
-4. in docker-compose.yml Ports, Resource-Limits ändern
-
-5. docker-comopose up -d
+5. docker-compose up -d
 
 6. DB-User und DB anlegen: docker exec -it dspace_postgres_1 /bin/bash
       1. createuser -U postgres -d -A -P dspace
