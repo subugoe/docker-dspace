@@ -1,2 +1,2 @@
 export CATALINA_OPTS="$CATALINA_OPTS -Xmx4096m"
-export CATALINA_OPTS="$CATALINS_OPTS -Dfile.encoding=UTF-8"
+export CATALINA_OPTS="$CATALINA_OPTS -Dfile.encoding=UTF-8"
