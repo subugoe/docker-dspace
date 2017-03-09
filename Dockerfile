@@ -1,8 +1,8 @@
 
 FROM ubuntu:16.04
 
-ENV TOMCAT_VERSION 8.0.33
-ENV DSPACE_VERSION 5.5
+ENV TOMCAT_VERSION 8.0.41
+ENV DSPACE_VERSION 5.6
 
 # Set locales
 RUN locale-gen en_GB.UTF-8
@@ -39,9 +39,9 @@ RUN echo "dspace:dspace" | chpasswd
 RUN chown -R dspace /opt/tomcat
 
 # Ordner für dspace erstellen und Rechte User dspace geben
-RUN mkdir /home/dspace/dspace-5.5-src
+RUN mkdir /home/dspace/dspace-5.6-src
 RUN mkdir /opt/dspace
-RUN mkdir /opt/dspace/geoleo
+RUN mkdir /opt/dspace/test
 RUN chown -R dspace /opt/dspace
 RUN chown -R dspace /home/dspace
 
@@ -49,8 +49,8 @@ RUN chown -R dspace /home/dspace
 ENV CATALINA_HOME /opt/tomcat
 ENV PATH $PATH:$CATALINA_HOME/bin
 ENV TERM xterm
-ENV DEPLOY_DIR /opt/dspace/geo-leo/webapps
-ENV SRC_DIR /home/dspace/dspace-5.5-src
+ENV DEPLOY_DIR /opt/dspace/test/webapps
+ENV SRC_DIR /home/dspace/dspace-5.6-src
 
 EXPOSE 8080
 
@@ -59,10 +59,10 @@ USER dspace
 
 # Get dspace
 RUN cd /home/dspace/; curl -L https://github.com/DSpace/DSpace/archive/dspace-${DSPACE_VERSION}.tar.gz | tar xz
-RUN mv /home/dspace/DSpace-dspace-5.5/* /home/dspace/dspace-5.5-src 
+RUN mv /home/dspace/DSpace-dspace-5.6/* /home/dspace/dspace-5.6-src 
 
 # DSpace-Konfig anpassen
-RUN cd ${SRC_DIR} && sed -i -e "s%dspace.install.dir=/dspace%dspace.install.dir=/opt/dspace/geoleo%g" build.properties
+RUN cd ${SRC_DIR} && sed -i -e "s%dspace.install.dir=/dspace%dspace.install.dir=/opt/dspace/test%g" build.properties
 RUN cd ${SRC_DIR} && sed -i -e "s%dspace.hostname = localhost%dspace.hostname = hostip%g" build.properties
 RUN cd ${SRC_DIR} && sed -i -e "s%dspace.baseUrl = http://localhost:8080%dspace.baseUrl = http://hostip:8080%g" build.properties
 RUN cd ${SRC_DIR} && sed -i -e "s%db.url=jdbc:postgresql://localhost:5432/dspace%db.url=jdbc:postgresql://postgres:5432/dspace%g" build.properties

@@ -7,7 +7,7 @@ Anleitung:
 
 2. in Dockerfile Zeilen 66 & 67 hostip durch Host-IP ersetzen
 
-3. optional: in Dockerfile Projektnamen geo-leo ändern (Zeilen 44, 52, 65), Tomcat/DSpace-Version ändern, in docker-compose.yml Ports, Resource-Limits ändern
+3. optional: in Dockerfile "test" gegen Projektnamen ändern (Zeilen 44, 52, 65), Tomcat/DSpace-Version ändern, in docker-compose.yml Ports, Resource-Limits ändern
 
 4. docker build -t dspace .
 
@@ -19,14 +19,14 @@ Anleitung:
       3. exit
 
 7. DSpace-Installation abschließen: docker exec -it dspacetestr /bin/bash
-      1. cd /home/dspace/dspace-5.5-src/dspace/target/dspace-installer
+      1. cd /home/dspace/dspace-5.6-src/dspace/target/dspace-installer
       2. ant fresh_install
-      3. webapps von /opt/dspace/geo-leo/webapps zu /opt/tomcat/webapps kopieren oder symlinks setzen
-      4. /opt/dspace/geoleo/bin/dspace create-administrator
+      3. webapps von /opt/dspace/test/webapps zu /opt/tomcat/webapps kopieren oder symlinks setzen
+      4. /opt/dspace/test/bin/dspace create-administrator
       5. exit
 
-8. http://localhost:8082/xmlui
+8. http://localhost:8081/xmlui
 
-9. um XMLUI Mirage 2 (responsive) zu nutzen: in /opt/dspace/geo-leo/config/xmlui.xconf Theme ersetzen durch "theme name="Mirage 2" regex=".*" path="Mirage2/" />"
+9. um XMLUI Mirage 2 (responsive) zu nutzen: in /opt/dspace/test/config/xmlui.xconf Theme ersetzen durch "theme name="Mirage 2" regex=".*" path="Mirage2/" />"
 
 10. DSpace-Container neustarten: docker restart dspace_dspace_1
