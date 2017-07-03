@@ -5,6 +5,7 @@ ENV TOMCAT_VERSION 8.0.41
 ENV DSPACE_VERSION 5.6
 
 # Set locales
+RUN apt-get update && apt-get install -y locales
 RUN locale-gen en_GB.UTF-8
 ENV LANG en_GB.UTF-8
 ENV LC_CTYPE en_GB.UTF-8
