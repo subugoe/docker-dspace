@@ -19,7 +19,8 @@ Anleitung:
 6. DB-User und DB anlegen: docker exec -it dspace_postgres_1 /bin/bash
       1. createuser -U postgres -d -A -P dspace
       2. createdb -U dspace -E UNICODE dspace
-      3. exit
+      3. für DSpace 6 muss zusätzlich pgcrypto enabled werden: psql --username=postgres dspace -c "CREATE EXTENSION pgcrypto;" 
+      4. exit
 
 7. DSpace-Installation abschließen: docker exec -it dspacetestr /bin/bash
       1. cd /home/dspace/dspace-5.6-src/dspace/target/dspace-installer
